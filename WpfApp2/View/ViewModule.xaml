@@ -1,0 +1,34 @@
+﻿<Window x:Class="WpfApp2.View.ViewModule"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2.View"
+        xmlns:map="clr-namespace:MapControl;assembly=MapControl.WPF"
+        mc:Ignorable="d"
+        Title="XAML MapControl - Projection Demo" Height="550" Width="900" WindowStartupLocation="CenterScreen" 
+        Loaded="Window_Loaded">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180*"/>
+            <ColumnDefinition Width="1620*"/>
+        </Grid.ColumnDefinitions>
+
+        <map:Map ZoomLevel="10.2" Center="52.37,104.13" MapLayer="{Binding CurrentLayer}" IsHitTestVisible="False" Visibility="Visible" RenderTransformOrigin="0.5,0.5" Margin="7,0,0,-8" Grid.ColumnSpan="2">
+            <map:Map.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.191"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-2.397"/>
+                </TransformGroup>
+            </map:Map.RenderTransform>
+        </map:Map>
+        <StackPanel Grid.Column="1"/>
+
+        <StackPanel Grid.Column="0">
+            <Button Content="Назад" Margin="10" Click="Button_Back" Background="#FFD4BA9B" FontSize="16" Height="27"/>
+        </StackPanel>
+    </Grid>
+</Window>
